@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Result Calculator</title>
+
+<style>
+body{
+    background:white;
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:350px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+input{
+    width:90%;
+    padding:8px;
+    margin:10px 0;
+}
+
+button{
+    background:#2d7df6;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5ed9;
+}
+
+.result{
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Student Result Calculator</h2>
+
+<label>Enter Number of Subjects</label>
+<input type="number" id="subjects">
+
+<button onclick="calculate()">Calculate Result</button>
+
+<div class="result">
+<p id="total"></p>
+<p id="average"></p>
+<p id="grade"></p>
+<p id="result"></p>
+</div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let n = document.getElementById("subjects").value;
+
+let total = 0;
+
+for(let i=1;i<=n;i++){
+
+let marks = parseInt(prompt("Enter marks for subject "+i));
+
+total += marks;
+
+}
+
+let avg = total / n;
+
+let grade = "";
+let res = "";
+
+if(avg >= 75){
+grade = "A";
+}
+else if(avg >= 60){
+grade = "B";
+}
+else if(avg >= 50){
+grade = "C";
+}
+else{
+grade = "D";
+}
+
+if(avg >= 40){
+res = "PASS";
+}
+else{
+res = "FAIL";
+}
+
+document.getElementById("total").innerHTML = "Total Marks: " + total;
+document.getElementById("average").innerHTML = "Average Marks: " + avg.toFixed(2);
+document.getElementById("grade").innerHTML = "Grade: " + grade;
+document.getElementById("result").innerHTML = "Result: " + res;
+
+}
+
+</script>
+
+</body>
+</html>

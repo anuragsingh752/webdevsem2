@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Salary Management System</title>
+</head>
+
+<body style="font-family:Arial;background:#f2f2f2;display:flex;justify-content:center;align-items:center;height:100vh;">
+
+<div style="background:white;padding:40px;border-radius:10px;width:420px;text-align:center;box-shadow:0px 0px 10px gray;">
+
+<h2>Employee Salary Management System</h2>
+
+<input id="name" placeholder="Employee Name" style="width:90%;padding:8px;margin:5px;"><br>
+
+<input id="id" placeholder="Employee ID" style="width:90%;padding:8px;margin:5px;"><br>
+
+<input id="salary" placeholder="Salary" style="width:90%;padding:8px;margin:5px;"><br>
+
+<input id="dept" placeholder="Department" style="width:90%;padding:8px;margin:5px;"><br>
+
+<button onclick="addEmployee()" style="background:#4CAF50;color:white;border:none;padding:10px;margin:10px;border-radius:5px;">
+Add Employee
+</button>
+
+<br>
+
+<button onclick="displayAll()" style="background:#4CAF50;color:white;border:none;padding:8px;margin:5px;border-radius:5px;">
+Display All
+</button>
+
+<button onclick="salaryFilter()" style="background:#4CAF50;color:white;border:none;padding:8px;margin:5px;border-radius:5px;">
+Salary > 50000
+</button>
+
+<button onclick="totalSalary()" style="background:#4CAF50;color:white;border:none;padding:8px;margin:5px;border-radius:5px;">
+Total Salary
+</button>
+
+<button onclick="averageSalary()" style="background:#4CAF50;color:white;border:none;padding:8px;margin:5px;border-radius:5px;">
+Average Salary
+</button>
+
+<br>
+
+<button onclick="countDept()" style="background:#4CAF50;color:white;border:none;padding:8px;margin:5px;border-radius:5px;">
+Count by Department
+</button>
+
+<div id="output" style="margin-top:20px;text-align:left;"></div>
+
+</div>
+
+<script>
+
+let employees=[];
+
+function addEmployee(){
+
+let name=document.getElementById("name").value;
+let id=document.getElementById("id").value;
+let salary=document.getElementById("salary").value;
+let dept=document.getElementById("dept").value;
+
+if(name=="" || id=="" || salary=="" || dept==""){
+alert("Please fill all fields!");
+return;
+}
+
+salary=parseInt(salary);
+
+employees.push({name,id,salary,dept});
+
+alert("Employee added successfully!");
+
+document.getElementById("name").value="";
+document.getElementById("id").value="";
+document.getElementById("salary").value="";
+document.getElementById("dept").value="";
+}
+
+function displayAll(){
+
+if(employees.length==0){
+document.getElementById("output").innerHTML="No employees added.";
+return;
+}
+
+let text="<b>Employee List:</b><br>";
+
+employees.forEach(e=>{
+text+=e.name+" | "+e.id+" | "+e.salary+" | "+e.dept+"<br>";
+});
+
+document.getElementById("output").innerHTML=text;
+}
+
+function salaryFilter(){
+
+let text="<b>Employees with Salary > 50000:</b><br>";
+let found=false;
+
+employees.forEach(e=>{
+if(e.salary>50000){
+text+=e.name+" | "+e.salary+" | "+e.dept+"<br>";
+found=true;
+}
+});
+
+if(!found){
+text="No employees with salary greater than 50000.";
+}
+
+document.getElementById("output").innerHTML=text;
+}
+
+function totalSalary(){
+
+let total=0;
+
+employees.forEach(e=>{
+total+=e.salary;
+});
+
+document.getElementById("output").innerHTML="<b>Total Salary:</b> "+total;
+}
+
+function averageSalary(){
+
+let total=0;
+
+employees.forEach(e=>{
+total+=e.salary;
+});
+
+let avg=total/employees.length;
+
+document.getElementById("output").innerHTML="<b>Average Salary:</b> "+avg;
+}
+
+function countDept(){
+
+let deptName=prompt("Enter department name:");
+
+if(deptName==null || deptName==""){
+alert("Department name required!");
+return;
+}
+
+let count=0;
+
+let text="<b>Employees in "+deptName+" Department:</b><br>";
+
+employees.forEach(e=>{
+if(e.dept.toLowerCase()==deptName.toLowerCase()){
+count++;
+text+=e.name+" | "+e.id+" | "+e.salary+" | "+e.dept+"<br>";
+}
+});
+
+text+="<br><b>Total Employees:</b> "+count;
+
+document.getElementById("output").innerHTML=text;
+
+}
+
+</script>
+
+</body>
+</html>

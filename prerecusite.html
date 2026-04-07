@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COD Mobile UI</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            background:url('Screenshot 2026-02-19 114415.png') no-repeat center center/cover;
+            color:white;
+        }
+
+        body::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.5);
+            top:0;
+            left:0;
+        }
+
+        .container{
+            position:relative;
+            z-index:1;
+            height:100%;
+        }
+
+        /* Top Bar */
+        .topbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 50px;
+        }
+
+        .profile-section{
+            display:flex;
+            align-items:center;
+            gap:15px;
+        }
+
+        /* Profile Image Box */
+        .profile-img{
+            width:50px;
+            height:50px;
+            border-radius:8px;
+            overflow:hidden;
+            border:2px solid #ffcc00;
+        }
+
+        .profile-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .profile-id{
+            font-size:16px;
+            font-weight:bold;
+        }
+
+        /* Profile Box Right */
+        .profile-box{
+            background:#ffcc00;
+            color:black;
+            padding:10px 15px;
+            border-radius:5px;
+            font-weight:bold;
+        }
+
+        .title{
+            font-size:24px;
+            font-weight:bold;
+            letter-spacing:2px;
+        }
+
+        /* Left Panel */
+        .left-panel{
+            position:absolute;
+            top:120px;
+            left:50px;
+        }
+
+        .panel-box{
+            background:#ffcc00;
+            color:black;
+            padding:10px;
+            margin-bottom:12px;
+            width:180px;
+            font-size:14px;
+            font-weight:bold;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .panel-box:hover{
+            background:white;
+        }
+
+        /* Modes */
+        .modes{
+            position:absolute;
+            top:200px;
+            right:80px;
+            display:flex;
+            gap:20px;
+        }
+
+        .mode{
+            width:150px;
+            height:220px;
+            background:#ffcc00;
+            color:black;
+            border-radius:10px;
+            overflow:hidden;
+            cursor:pointer;
+            transition:0.3s;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .mode img{
+            width:100%;
+            height:150px;
+            object-fit:cover;
+        }
+
+        .mode-title{
+            flex:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:bold;
+        }
+
+        .mode:hover{
+            transform:scale(1.08);
+            background:white;
+        }
+
+        /* Bottom Menu */
+        .bottom-menu{
+            position:absolute;
+            bottom:30px;
+            left:50%;
+            transform:translateX(-50%);
+            display:flex;
+            gap:15px;
+        }
+
+        .menu-btn{
+            background:#ffcc00;
+            color:black;
+            padding:10px 18px;
+            border-radius:5px;
+            font-size:14px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .menu-btn:hover{
+            background:white;
+        }
+
+        /* Start Button */
+        .start-btn{
+            position:absolute;
+            bottom:40px;
+            right:80px;
+            background:#ffcc00;
+            color:black;
+            padding:12px 35px;
+            font-size:16px;
+            font-weight:bold;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .start-btn:hover{
+            background:white;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+
+        <div class="profile-section">
+            
+            <!-- Profile Image -->
+            <div class="profile-img">
+                <img src="Screenshot 2026-02-19 115247.png" alt="Profile">
+            </div>
+
+            <div class="profile-id">Ghost | 150 CP</div>
+        </div>
+
+        <div class="title">CALL OF DUTY MOBILE</div>
+
+        <div class="profile-box">
+            Level 45
+        </div>
+
+    </div>
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="panel-box">Lucky Draw</div>
+        <div class="panel-box">Season 1</div>
+        <div class="panel-box">BP Bonus</div>
+    </div>
+
+    <!-- Modes -->
+    <div class="modes">
+
+        <a href="#">
+            <div class="mode">
+                <img src="Screenshot 2026-02-19 115450.png" alt="Multiplayer">
+                <div class="mode-title">Multiplayer</div>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="mode">
+                <img src="Screenshot 2026-02-19 115536.png" alt="Battle Royale">
+                <div class="mode-title">Battle Royale</div>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="mode">
+                <img src="Screenshot 2026-02-19 115604.png" alt="Coming Soon">
+                <div class="mode-title">Coming Soon</div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Bottom Menu -->
+    <div class="bottom-menu">
+        <div class="menu-btn">Store</div>
+        <div class="menu-btn">Loadout</div>
+        <div class="menu-btn">Clan</div>
+        <div class="menu-btn">Leaderboard</div>
+        <div class="menu-btn">Rank Match</div>
+    </div>
+
+    <!-- Start Button -->
+    <button class="start-btn">START</button>
+
+</div>
+
+</body>
+</html>
